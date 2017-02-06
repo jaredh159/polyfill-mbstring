@@ -11,7 +11,7 @@
 
 use Symfony\Polyfill\Mbstring as p;
 
-if (!function_exists('mb_strlen')) {
+if (!function_exists('mb_convert_encoding')) {
     define('MB_CASE_UPPER', 0);
     define('MB_CASE_LOWER', 1);
     define('MB_CASE_TITLE', 2);
@@ -28,12 +28,10 @@ if (!function_exists('mb_strlen')) {
     function mb_detect_encoding($str, $encodingList = null, $strict = false) { return p\Mbstring::mb_detect_encoding($str, $encodingList, $strict); }
     function mb_detect_order($encodingList = null) { return p\Mbstring::mb_detect_order($encodingList); }
     function mb_parse_str($s, &$result = array()) { parse_str($s, $result); }
-    function mb_strlen($s, $enc = null) { return p\Mbstring::mb_strlen($s, $enc); }
     function mb_strpos($s, $needle, $offset = 0, $enc = null) { return p\Mbstring::mb_strpos($s, $needle, $offset, $enc); }
     function mb_strtolower($s, $enc = null) { return p\Mbstring::mb_strtolower($s, $enc); }
     function mb_strtoupper($s, $enc = null) { return p\Mbstring::mb_strtoupper($s, $enc); }
     function mb_substitute_character($char = null) { return p\Mbstring::mb_substitute_character($char); }
-    function mb_substr($s, $start, $length = 2147483647, $enc = null) { return p\Mbstring::mb_substr($s, $start, $length, $enc); }
     function mb_stripos($s, $needle, $offset = 0, $enc = null) { return p\Mbstring::mb_stripos($s, $needle, $offset, $enc); }
     function mb_stristr($s, $needle, $part = false, $enc = null) { return p\Mbstring::mb_stristr($s, $needle, $part, $enc); }
     function mb_strrchr($s, $needle, $part = false, $enc = null) { return p\Mbstring::mb_strrchr($s, $needle, $part, $enc); }
